@@ -13,6 +13,7 @@
   --accent-pale: #EAC2C5;
   --main-text: #141414;
   --code-bg: #f3e0e1;
+  --white: #000000;
 }
 
 body {
@@ -225,14 +226,28 @@ a:hover, a:active, a:focus {
 
 
 /* footer */
-div.my-footer {
+div.my-footer-right {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 5px;
+    right: 5px;
     height: 20px;
     width: 100%;
 }
-div.my-footer span {
+div.my-footer-right span {
+    font-size: 10pt;
+    color: var(--main-text);
+    position: absolute;
+    left: 15px;
+    bottom: 2px;
+}
+div.my-footer-left {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    height: 20px;
+    width: 100%;
+}
+div.my-footer-left span {
     font-size: 10pt;
     color: var(--main-text);
     position: absolute;
@@ -247,7 +262,6 @@ a.footer-link {
     width: 150px;
     color: var(--main-text);
 }
-
 
 
 
@@ -298,6 +312,10 @@ a.footer-link {
 
 .text-highlight {
   color: var(--primary-pale);
+}
+
+.white-text {
+  color: var(--white);
 }
 
 
