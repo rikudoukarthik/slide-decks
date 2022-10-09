@@ -72,6 +72,9 @@ theme(panel.grid = element_blank(),
       plot.title = element_blank())
 }
 
+# for latency
+htmltools::tags$style(".remark-fading{display:none}")
+
 ```
 
 ```{r prep, include=FALSE}
@@ -168,14 +171,6 @@ background-size: contain;
 background-image: url("pics/covid-run_camdelafu.gif");
 } 
 
-```
-
-```{r}
-htmltools::tags$style("
-.remark-fading{
-  display:none
-}
-")
 ```
 
 
