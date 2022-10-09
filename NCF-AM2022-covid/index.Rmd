@@ -170,6 +170,15 @@ background-image: url("pics/covid-run_camdelafu.gif");
 
 ```
 
+```{r}
+htmltools::tags$style("
+.remark-fading{
+  display:none
+}
+")
+```
+
+
 # The impact of the C![:scale 3%](pics/coronavirus.png)VID-19 pandemic on birding and birds in India
 
 ## NCF Annual Meet <br> 12 October 2022
