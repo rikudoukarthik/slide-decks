@@ -3,4 +3,6 @@
 .RData
 .Ruserdata
 
+*.pdf
+
 NCF-AM2022-covid/index_cache/
