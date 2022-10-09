@@ -1,4 +1,5 @@
 ---
+title: "The impact of the COVID-19 pandemic on birding and birds in India"
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -239,7 +240,7 @@ class: middle, center
 
 ![](pics/dive-snow.gif)
 
-```
+```{r echo=TRUE, eval=FALSE}
 > our_small_dataset
 # A tibble: 34,653,868 x 30
 ```
@@ -282,7 +283,7 @@ class: middle
 
 <br>
 
-```{r fig.dim=c(16,6)}
+```{r fig.dim=c(16,5)}
 
 library(lubridate)
 
@@ -318,8 +319,8 @@ ggplot(x, aes(x = DATE)) +
         axis.ticks.y = element_blank(),
         axis.line.y = element_blank(),
         legend.position = "top",
-        legend.title = element_text(size = 20),
-        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 22),
+        legend.text = element_text(size = 16),
         plot.title = element_text(size = 40)) +
   ylim(-0.15,0.125) +
   geom_hline(yintercept = 0,  color = "black", size = 1.5) +
@@ -343,6 +344,13 @@ ggplot(x, aes(x = DATE)) +
             aes(x = YEAR.RANGE, y = -0.08, label = year(YEAR.RANGE), fontface="bold"), 
             size = 7)
 
+# getting list of months labels for other graphs
+month_labels <- x %>% 
+  mutate(MONTH = month(DATE)) %>% 
+  arrange(MONTH) %>% 
+  mutate(MONTH.LAB = month(DATE, label = T)) %>% 
+  distinct(MONTH.LAB)
+
 ```
 
 ---
@@ -357,15 +365,18 @@ class: middle
 
 # group birding in Karnataka
 
- group_birding %>% 
+group_birding %>% 
   filter(STATE == anal_states$a) %>% 
   ggplot(aes(MONTH, PRED, colour = COVID)) +
-     labs(title = paste("Group birding in", anal_states$a, "state"),
-          x = "Month", y = "Predicted group birding proportion") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels)
+  labs(title = paste("Group birding in", anal_states$a, "state"),
+       x = "Month", y = "Predicted group birding proportion") + 
+  annotate("rect", xmin = 2.5, xmax = 7.5, ymin = -Inf, ymax = Inf, 
+            fill = "#E0DDE3", col = NA, alpha = 0.5) +
+  geom_point(size = 4, position = position_dodge(0.5)) +
+  # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+  #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+  scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+  scale_x_discrete(labels = month_labels$MONTH.LAB)
 
 ```
 
@@ -376,15 +387,18 @@ class: center, middle
 
 # fidelity in Maharashtra
 
- site_fidelity %>% 
+site_fidelity %>% 
   filter(STATE == anal_states$c) %>% 
   ggplot(aes(MONTH, PRED, colour = COVID)) +
-     labs(title = paste("Site fidelity in", anal_states$a, "state"),
-          x = "Month", y = "Predicted number of sites an observer visits") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels)
+  labs(title = paste("Site fidelity in", anal_states$c, "state"),
+       x = "Month", y = "Predicted number of sites an observer visits") + 
+  annotate("rect", xmin = 2.5, xmax = 10.5, ymin = -Inf, ymax = Inf, 
+            fill = "#E0DDE3", col = NA, alpha = 0.5) +
+  geom_point(size = 4, position = position_dodge(0.5)) +
+  # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+  #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+  scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+  scale_x_discrete(labels = month_labels$MONTH.LAB)
 
 ```
 
@@ -398,30 +412,36 @@ class: center, middle
 urban1 %>% 
   ggplot(aes(MONTH, PROP.U.PRED, colour = M.YEAR)) +
   labs(title = "Urban birding in the country",
-       x = "Month", y = "Predicted urban birding proportion") +
-  geom_point(size = 3, position = position_dodge(0.5)) +
+       x = "Month", y = "Predicted urban birding proportion") + 
+  annotate("rect", xmin = 2.5, xmax = 5.5, ymin = -Inf, ymax = Inf, 
+            fill = "#E0DDE3", col = NA, alpha = 0.5) +
+  geom_point(size = 4, position = position_dodge(0.5)) +
   geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-                size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-  scale_colour_manual(values = covid_palette, name = "Migratory year", labels = covid_labels)
+                size = 1.5, width = 0.4, position = position_dodge(0.5)) +
+  scale_colour_manual(values = covid_palette, name = "Migratory year") +
+  scale_x_discrete(labels = month_labels$MONTH.LAB)
 
 ```
 
 ---
 class: middle
 
-```{r fig.dim=c(16,9)}
+```{r fig.dim=c(13,7)}
 
 # coverage in Kerala
 
 coverage %>% 
   filter(STATE == anal_states$b) %>% 
   ggplot(aes(MONTH, PRED, colour = COVID)) +
-     labs(title = paste("Spatial coverage in", anal_states$b),
-          x = "Month", y = "Predicted grid cell coverage") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels)
+  labs(title = paste("Spatial coverage in", anal_states$b),
+       x = "Month", y = "Predicted grid cell coverage") + 
+  annotate("rect", xmin = 3.5, xmax = 5.5, ymin = -Inf, ymax = Inf, 
+            fill = "#E0DDE3", col = NA, alpha = 0.5) +
+  geom_point(size = 4, position = position_dodge(0.5)) +
+  # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+  #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+  scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+  scale_x_discrete(labels = month_labels$MONTH.LAB)
 
 ```
 
@@ -433,18 +453,24 @@ class: inverse, center, middle
 ---
 class: center, middle
 
-```{r fig.dim=c(16,9)}
+```{r fig.dim=c(11,6)}
 
 bang2 %>% 
-  ggplot(aes(M.YEAR, REP.FREQ.PRED, col = SP.CATEGORY)) +
-    scale_color_manual(values = c("#8F85C1", "#A3383C"),
-                       name = "Species category",
-                       labels = c("Rural", "Urban")) +
-     labs(title = "Predicted reporting frequencies of 23 species",
-          x = "Migratory year", y = "Predicted reporting frequency") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-                   size = 1.5, width = 0.2, position = position_dodge(0.5))
+  mutate(M.YEAR.NUM = case_when(M.YEAR == "2018" ~ 2018,
+                                M.YEAR == "2019" ~ 2019,
+                                M.YEAR == "2020" ~ 2020,
+                                M.YEAR == "2021" ~ 2021)) %>% 
+  ggplot(aes(M.YEAR.NUM, REP.FREQ.PRED, col = SP.CATEGORY)) +
+  scale_color_manual(values = c("#8F85C1", "#A3383C"),
+                     name = "Species category",
+                     labels = c("Rural", "Urban")) +
+  labs(title = "Predicted reporting frequencies of 23 species",
+       x = "Migratory year", y = "Predicted reporting frequency") + 
+  annotate("rect", xmin = 2018.5, xmax = 2019.5, ymin = -Inf, ymax = Inf, 
+           fill = "#E0DDE3", col = NA, alpha = 0.5) +
+  geom_point(size = 3, position = position_dodge(0.5)) +
+  geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+                size = 1.5, width = 0.2, position = position_dodge(0.5))
 
 
 ```
@@ -629,51 +655,52 @@ class: center, middle
      geom_point(size = 3, position = position_dodge(0.5)) +
      geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
                    size = 1.5, width = 0.2, position = position_dodge(0.5))) +
-  plot_layout(guides = "collect") +
-  plot_annotation(title = "Predicted reporting frequencies of 23 species:",
-                  subtitle = " ",
-                  theme = theme(plot.title = element_text(size = 35)))
+  plot_layout(guides = "collect")
 
 ```
 
 ---
 class: center, middle
 
-```{r fig.dim=c(16,6)}
+```{r fig.dim=c(16,10)}
 
 
 ((ggplot(filter(birding_time, STATE == anal_states$a), 
-        aes(MONTH, PRED, colour = COVID)) +
+         aes(MONTH, PRED, colour = COVID)) +
     labs(title = anal_states$a,
          x = "Month", y = "Predicted birding time of an observer") +
     geom_point(size = 3, position = position_dodge(0.5)) +
     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-    scale_colour_manual(values = covid_palette, name = "Period") |
-  ggplot(filter(birding_time, STATE == anal_states$b), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$b,
-          x = "Month", y = "Predicted birding time of an observer") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period")) /
-  (ggplot(filter(birding_time, STATE == anal_states$c), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$c,
-          x = "Month", y = "Predicted birding time of an observer") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period") |
-  ggplot(filter(birding_time, STATE == anal_states$d), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$d,
-          x = "Month", y = "Predicted birding time of an observer") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period"))) +
+    scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+    scale_x_discrete(labels = month_labels$MONTH.LAB) |
+    ggplot(filter(birding_time, STATE == anal_states$b), 
+           aes(MONTH, PRED, colour = COVID)) +
+    labs(title = anal_states$b,
+         x = "Month", y = "Predicted birding time of an observer") +
+    geom_point(size = 3, position = position_dodge(0.5)) +
+    # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+    #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+    scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+    scale_x_discrete(labels = month_labels$MONTH.LAB)) /
+   (ggplot(filter(birding_time, STATE == anal_states$c), 
+           aes(MONTH, PRED, colour = COVID)) +
+      labs(title = anal_states$c,
+           x = "Month", y = "Predicted birding time of an observer") +
+      geom_point(size = 3, position = position_dodge(0.5)) +
+      # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+      #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+      scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+      scale_x_discrete(labels = month_labels$MONTH.LAB) |
+      ggplot(filter(birding_time, STATE == anal_states$d), 
+             aes(MONTH, PRED, colour = COVID)) +
+      labs(title = anal_states$d,
+           x = "Month", y = "Predicted birding time of an observer") +
+      geom_point(size = 3, position = position_dodge(0.5)) +
+      # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+      #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+      scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+      scale_x_discrete(labels = month_labels$MONTH.LAB))) +
   plot_layout(guides = "collect")
 
 ```
@@ -681,40 +708,44 @@ class: center, middle
 ---
 class: center, middle
 
-```{r fig.dim=c(16,6)}
+```{r fig.dim=c(16,10)}
 
 ((ggplot(filter(hotspot_birding, STATE == anal_states$a), 
-        aes(MONTH, PRED, colour = COVID)) +
+         aes(MONTH, PRED, colour = COVID)) +
     labs(title = anal_states$a,
          x = "Month", y = "Predicted hotspot birding proportion") +
     geom_point(size = 3, position = position_dodge(0.5)) +
     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-    scale_colour_manual(values = covid_palette, name = "Period") |
-  ggplot(filter(hotspot_birding, STATE == anal_states$b), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$b,
-          x = "Month", y = "Predicted hotspot birding proportion") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period")) /
-  (ggplot(filter(hotspot_birding, STATE == anal_states$c), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$c,
-          x = "Month", y = "Predicted hotspot birding proportion") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period") |
-  ggplot(filter(hotspot_birding, STATE == anal_states$d), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$d,
-          x = "Month", y = "Predicted hotspot birding proportion") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period"))) +
+    scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+    scale_x_discrete(labels = month_labels$MONTH.LAB) |
+    ggplot(filter(hotspot_birding, STATE == anal_states$b), 
+           aes(MONTH, PRED, colour = COVID)) +
+    labs(title = anal_states$b,
+         x = "Month", y = "Predicted hotspot birding proportion") +
+    geom_point(size = 3, position = position_dodge(0.5)) +
+    # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+    #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+    scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+    scale_x_discrete(labels = month_labels$MONTH.LAB)) /
+   (ggplot(filter(hotspot_birding, STATE == anal_states$c), 
+           aes(MONTH, PRED, colour = COVID)) +
+      labs(title = anal_states$c,
+           x = "Month", y = "Predicted hotspot birding proportion") +
+      geom_point(size = 3, position = position_dodge(0.5)) +
+      # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+      #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+      scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+      scale_x_discrete(labels = month_labels$MONTH.LAB) |
+      ggplot(filter(hotspot_birding, STATE == anal_states$d), 
+             aes(MONTH, PRED, colour = COVID)) +
+      labs(title = anal_states$d,
+           x = "Month", y = "Predicted hotspot birding proportion") +
+      geom_point(size = 3, position = position_dodge(0.5)) +
+      # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+      #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+      scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+      scale_x_discrete(labels = month_labels$MONTH.LAB))) +
   plot_layout(guides = "collect")
 
 ```
@@ -722,40 +753,44 @@ class: center, middle
 ---
 class: center, middle
 
-```{r fig.dim=c(16,6)}
+```{r fig.dim=c(16,10)}
 
 ((ggplot(filter(birding_protocol, STATE == anal_states$a), 
-        aes(MONTH, PRED, colour = COVID)) +
+         aes(MONTH, PRED, colour = COVID)) +
     labs(title = anal_states$a,
          x = "Month", y = "Predicted travelling birding proportion") +
     geom_point(size = 3, position = position_dodge(0.5)) +
     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-    scale_colour_manual(values = covid_palette, name = "Period") |
-  ggplot(filter(birding_protocol, STATE == anal_states$b), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$b,
-          x = "Month", y = "Predicted travelling birding proportion") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period")) /
-  (ggplot(filter(birding_protocol, STATE == anal_states$c), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$c,
-          x = "Month", y = "Predicted travelling birding proportion") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period") |
-  ggplot(filter(birding_protocol, STATE == anal_states$d), 
-          aes(MONTH, PRED, colour = COVID)) +
-     labs(title = anal_states$d,
-          x = "Month", y = "Predicted travelling birding proportion") +
-     geom_point(size = 3, position = position_dodge(0.5)) +
-     # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
-     #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
-     scale_colour_manual(values = covid_palette, name = "Period"))) +
+    scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+    scale_x_discrete(labels = month_labels$MONTH.LAB) |
+    ggplot(filter(birding_protocol, STATE == anal_states$b), 
+           aes(MONTH, PRED, colour = COVID)) +
+    labs(title = anal_states$b,
+         x = "Month", y = "Predicted travelling birding proportion") +
+    geom_point(size = 3, position = position_dodge(0.5)) +
+    # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+    #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+    scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+    scale_x_discrete(labels = month_labels$MONTH.LAB)) /
+   (ggplot(filter(birding_protocol, STATE == anal_states$c), 
+           aes(MONTH, PRED, colour = COVID)) +
+      labs(title = anal_states$c,
+           x = "Month", y = "Predicted travelling birding proportion") +
+      geom_point(size = 3, position = position_dodge(0.5)) +
+      # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+      #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+      scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+      scale_x_discrete(labels = month_labels$MONTH.LAB) |
+      ggplot(filter(birding_protocol, STATE == anal_states$d), 
+             aes(MONTH, PRED, colour = COVID)) +
+      labs(title = anal_states$d,
+           x = "Month", y = "Predicted travelling birding proportion") +
+      geom_point(size = 3, position = position_dodge(0.5)) +
+      # geom_errorbar(aes(ymin = CI.L, ymax = CI.U),
+      #               size = 1.5, width = 0.2, position = position_dodge(0.5)) +
+      scale_colour_manual(values = covid_palette, name = "Period", labels = covid_labels) +
+      scale_x_discrete(labels = month_labels$MONTH.LAB))) +
   plot_layout(guides = "collect")
 
 ```
@@ -763,7 +798,7 @@ class: center, middle
 ---
 class: center, middle
 
-```{r fig.dim=c(16,6), cache=TRUE}
+```{r fig.dim=c(16,10), cache=TRUE}
 
 clust_data %>% 
   ggplot() +
@@ -773,7 +808,7 @@ clust_data %>%
   facet_wrap(~ COVID, nrow = 1) +
   geom_sf(aes(fill = CO.TYPE), color = NA) +
   scale_fill_viridis_d(option = "cividis", direction = -1,
-                       name = 'Clusters & \nOutliers') +
+                       name = 'Clusters & Outliers') +
   labs(x = "Longitude", y = "Latitude",
        title = "Spatial clusters and outliers") +
   theme(legend.key.width = unit(1, "inches"),
