@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,300;1,300;1,600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Petrona&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap);
+
+:root {
+  --primary: #1B4965;
+  --primary-pale: #D1F0EE;
+  --secondary: #8F85C1;
+  --secondary-pale: #DBD6EB;
+  --accent: #A3383C;
+  --accent-pale: #EAC2C5;
+  --main-text: #141414;
+  --code-bg: #f3e0e1;
+  --white: #000000;
+}
+
+body {
+  font-family: 'Sen', sans-serif;
+  font-weight: 400;
+  color: var(--main-text);
+}
+
+/* The margin- lines crucial for preventing headings from being position too far to the right and bottom */
+
+h1 {
+  font-family: 'Petrona', serif;
+  font-weight: 800;
+  font-size: 3em;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom:.5rem;
+}
+
+h2 {
+  font-family: 'Petrona', serif;
+  font-weight: 600;
+  font-size: 2em;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom:.5rem;
+}
+
+h3 {
+  font-family: 'Sen', sans-serif;
+  font-weight: 600;
+  font-size: 1.5em;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom:.5rem;
+}
+
+h4 {
+  font-weight: 500;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-size: 1.3em !important;
+  margin-bottom:.5rem;
+}
+
+
+
+.remark-code, 
+.remark-inline-code {
+  font-family: 'Courier Prime', monospace;
+}
+
+.remark-slide-content p, ul, ol, li {
+  font-size: 1.5rem;
+}
+
+
+.fancy {
+  font-family: Roboto Slab;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.footnote {
+  bottom: 1em;
+  font-size: 70%;
+}
+
+
+
+.smallcaps {
+  font-variant: small-caps;
+}
+
+.small {
+  font-size: 0.85em;
+}
+
+.smaller {
+  font-size: 0.5rem;
+}
+
+.big {
+  font-size: 1.5em;
+}
+
+.bigger {
+  font-size: 2em;
+}
+
+
+
+
+/* ##### theme below */
+
+
+
+p {
+  margin-top:0;
+  margin-bottom:1rem;
+}
+
+ul li::marker {
+  color: var(--accent);
+  font-size: 1.2em;
+}
+
+blockquote {
+  font-family: Roboto Slab;
+  font-weight: 700;
+	border-left: solid 5px var(--secondary);
+	color: var(--primary);
+	background-color: var(--secondary-pale);
+	padding: 2em;
+}
+
+/* link color */
+:any-link {
+    color: var(--main-text);
+    text-decoration: underline;
+}
+
+/* mouse over link */
+a:hover, a:active, a:focus {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+
+.inverse {
+  background-color: var(--primary-pale);
+}
+
+.inverse .remark-slide-number {
+  display: none;
+}
+.no-page-number .remark-slide-number {
+  display: none;
+}
+
+
+
+
+.remark-code {
+  color: var(--main-text);
+  font-size: 1.25em;
+}
+
+.remark-inline-code {
+  color: var(--main-text);
+  font-size: 1em;
+}
+
+.mjx-chtml{
+  font-size: 110% !important;
+}
+
+
+
+/* layouts */
+
+.left-column {
+  width: 25%;
+  height: 92%;
+  float: left;
+}
+
+.right-column {
+  width: 70%;
+  float: right;
+}
+
+.pull-left {
+  float: left;
+  width: 47%;
+}
+
+.pull-right {
+  float: right;
+  width: 47%;
+}
+
+.pull-right + * {
+  clear: both;
+}
+
+.right-wide {
+  width: 60%;
+  float: right;
+  padding-top: 1em;
+}
+
+.left-narrow {
+  width: 40%;
+  float: left;
+  padding-top: 1em;
+}
+
+.left-wide {
+  width: 60%;
+  float: left;
+  padding-top: 1em;
+}
+
+.right-narrow {
+  width: 40%;
+  float: right;
+  padding-top: 1em;
+}
+
+
+/* footer */
+div.my-footer-right {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    height: 20px;
+    width: 100%;
+}
+div.my-footer-right span {
+    font-size: 10pt;
+    color: var(--main-text);
+    position: absolute;
+    left: 15px;
+    bottom: 2px;
+}
+div.my-footer-left {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    height: 20px;
+    width: 100%;
+}
+div.my-footer-left span {
+    font-size: 10pt;
+    color: var(--main-text);
+    position: absolute;
+    left: 15px;
+    bottom: 2px;
+}
+a.footer-link {
+    position: absolute;
+    bottom: 5px;
+    right: 50px;
+    height: 40px;
+    width: 150px;
+    color: var(--main-text);
+}
+
+
+
+/* Progress bar https://github.com/yihui/xaringan/wiki/Progressbar */
+
+.remark-slide-number {
+  position: inherit;
+  color: var(--accent);
+}
+
+.remark-slide-number .progress-bar-container {
+    position: absolute;
+    bottom: -2px;
+    height: 5px;
+    display: block;
+    left: 0;
+    right: 0;
+}
+
+.remark-slide-number .progress-bar {
+    height: 100%;
+    background-color: var(--accent);
+}
+
+.title-slide .remark-slide-number .progress-bar {
+    height: 0px;
+    background-color: var(--accent);
+} 
+
+
+
+
+
+.middle2 {
+  margin: 0;
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.center-fig {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-highlight {
+  color: var(--primary-pale);
+}
+
+.white-text {
+  color: var(--white);
+}
+
+
+
+
+
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  .has-continuation {
+    display: block !important;
+  }
+}
+
