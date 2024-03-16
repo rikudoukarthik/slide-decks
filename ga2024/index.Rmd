@@ -261,7 +261,7 @@ class: top, center
 
 <br>
 
-![:scale 50%](02_pics/birdmon_team.png)
+![:scale 65%](02_pics/birdmon_team.png)
 
 ???
 
@@ -357,13 +357,21 @@ Plus, in my off-time I get to travel to crazy places hunting down birds and land
 
 ---
 class: middle, center
+background-color: var(--accent-pale)
+
+???
+
+I want to tell you all about a specific project I was part of. This is the biggest formal research project our team has been involved in.
+
+---
+class: middle, center
 background-image: url("02_pics/soib-cover.png")
 background-size: contain
 background-color: var(--accent-pale)
 
 ???
 
-Among the formal research projects our team has been involved in, SoIB is the biggest and its scope actually extends much further beyond NCF---SoIB is a partnership of 13 governmental and non-governmental organisations, among which NCF is but one.
+The scope of SoIB actually extends much further beyond NCF---it is a partnership of 13 governmental and non-governmental organisations, among which NCF is but one.
 
 ---
 class: center, middle
@@ -386,6 +394,8 @@ class: center, middle
 
 Status in terms of abundance and/or range. Elsewhere, these are always done using large-scale systematic monitoring programmes spread across the region of interest.
 
+What is systematic monitoring? This is something very difficult to implement in a huge and diverse country like India.
+
 ---
 class: middle, center
 background-image: url("02_pics/soib_cycle.jpg")
@@ -399,47 +409,15 @@ We figured out an alternative to do this with eBird data, which has been exponen
 
 ---
 class: middle, center
-
-.pull-left[
-![:scale 95%](02_pics/soib_pipeline1.png)
-]
-
-.pull-right[
-![:scale 95%](02_pics/soib_pipeline2.png)
-]
-
-<div class="my-footer-right">Figure: Janhavi Rajan</a></div>
-
-???
-
-Long-term Change (pre-2000--present), Current Annual Trend (2015--2022), Distribution Range Size
-
----
-class: middle, center
-
-![:scale 80%](02_pics/ebird_repfreq_crop.png)
-
----
-class: middle, center
-
-.pull-left[
-![:scale 95%](02_pics/soib_pipeline1.png)
-]
-
-.pull-right[
-![:scale 95%](02_pics/soib_pipeline2.png)
-]
-
-<div class="my-footer-right">Figure: Janhavi Rajan</a></div>
-
-???
-
-Long-term Change (pre-2000--present), Current Annual Trend (2015--2022), Distribution Range Size
-
----
-class: middle, center
 background-image: url("02_pics/soib_summary.png")
 background-size: contain
+
+???
+
+Three main metrics: 
+- Long-term Change (pre-2000--present)
+- Current Annual Trend (2015--2022)
+- Distribution Range Size
 
 ---
 class: middle, center
@@ -478,13 +456,6 @@ background-size: contain
 However, in some places the pool of data from birders is not sufficient to conduct these robust analyses. E.g., Bihar.
 
 ---
-class: top, center
-background-image: url("02_pics/thrivingbirds.png")
-background-size: contain
-
-### Thriving birds
-
----
 class: middle, center
 
 # Status: Karnataka's state bird
@@ -502,7 +473,7 @@ background-size: contain
 
 ???
 
-Aside from looking at how individual species are doing, we can investigate groups to understand broader patterns. For example, Indian Roller is a very familiar bird, but not doing very well. It is an open habitat specialist.
+Indian Roller is a very familiar bird, but not doing very well. Aside from looking at how individual species are doing, we can investigate groups to understand broader patterns. For example, it is an open habitat specialist.
 
 --
 
@@ -532,36 +503,14 @@ And when we zoom out to look at different habitat specialisations, here too we n
 
 ---
 class: top, center
-background-image: url("02_pics/ducks.png")
-background-size: contain
-
-### Ducks in decline
-
-???
-
-Unfortunately, the situation is also grim for many of our migratory ducks which are in decline.
-
----
-class: top, center
 background-image: url("02_pics/diet.png")
 background-size: contain
 
-### Frugivores &#x1f4c8; but carnivores &#x1f4c9;
+### Frugivores &#x1F197; but carnivores &#x1f4c9;
 
 ???
 
 Large frugivores could be doing well due to planting of fruiting trees in human inhabited areas. But carrion-eaters and insectivores are generally declining. 
-
----
-class: top, center
-background-image: url("02_pics/wrvu_pas.png")
-background-size: contain
-
-### Vultures (relatively) better off in PAs
-
-???
-
-There is some ray of hope: White-rumped Vulture and other vultures seem to be doing better in PAs.
 
 ---
 class: middle, center
@@ -576,12 +525,20 @@ background-size: contain
 background-image: url("02_pics/soib_web_allspecies.png")
 background-size: contain
 
+???
+
+Anyone can access all the results from SoIB 2023, including maps and graphs, on the website.
+
 ---
 class: middle, center
 
 ![:scale 60%](02_pics/soib_yt.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KS70fVQfki0?si=-pmcAnfs6XrdYZ70" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+???
+
+We also have a YouTube channel where we try to communicate these findings in a way that the information reaches relevant audiences.
 
 ---
 class: middle, center
@@ -599,6 +556,10 @@ background-size: contain
 .pull-right[
 ![:scale 90%](02_pics/myna_christ2.png)
 ]
+
+???
+
+A tool to generate summarised reports of the birds and their health in a specific area.
 
 ---
 class: middle, center
@@ -662,6 +623,72 @@ class: end-slide, inverse, middle
 ---
 class: middle, center
 
+![:scale 80%](02_pics/ebird_repfreq_crop.png)
+
+???
+
+From eBird data, we can calculate an index of abundance (aka, reporting frequency) of a species for a specific location and time period, based on all the eBirding that has happened in that space and time.
+
+---
+class: middle, center
+
 # Historical lists are critical!
 
 ![:scale 70%](02_pics/ebird_historical_list.png)
+
+???
+
+People have gone into their old notebooks, and uploaded their very old observations onto eBird. Without this, we wouldn't have been able to even calculate the long-term trends!
+
+---
+class: middle, center
+
+.pull-left[
+![:scale 95%](02_pics/soib_pipeline1.png)
+]
+
+.pull-right[
+![:scale 95%](02_pics/soib_pipeline2.png)
+]
+
+<div class="my-footer-right">Figure: Janhavi Rajan</a></div>
+
+???
+
+Three main metrics: 
+- Long-term Change (pre-2000--present)
+- Current Annual Trend (2015--2022)
+- Distribution Range Size
+
+---
+class: top, center
+background-image: url("02_pics/thrivingbirds.png")
+background-size: contain
+
+### Thriving birds
+
+???
+
+The peafowl is on the few bird species in India that are doing well.
+
+---
+class: top, center
+background-image: url("02_pics/ducks.png")
+background-size: contain
+
+### Ducks in decline
+
+???
+
+Unfortunately, the situation is grim for many of our migratory ducks which are in decline.
+
+---
+class: top, center
+background-image: url("02_pics/wrvu_pas.png")
+background-size: contain
+
+### Vultures (relatively) better off in PAs
+
+???
+
+There is some ray of hope: White-rumped Vulture and other vultures seem to be doing better in PAs.
