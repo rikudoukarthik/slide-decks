@@ -104,7 +104,7 @@ background-color: var(--primary-pale);
 
 ```
 
-<div class="my-header-left"><i>Slides <a href="https://kartrick.netlify.app/ga2024/">available online</a></i></div>
+<div class="my-header-left"><i>Slides <a href="https://kartrix-doujutsu.netlify.app/ga2024/">available online</a></i></div>
 
 <div class="my-footer-right">Art: Shimontika Gupta; Photo: Rachit Singh</a></div>
 

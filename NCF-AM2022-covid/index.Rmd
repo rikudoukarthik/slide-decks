@@ -188,7 +188,7 @@ background-image: url("pics/covid-run_camdelafu.gif");
 
 <div class="image-left"></div>  
 
-<div class="my-footer-left">Slides <a href="kartrick.netlify.app/ncf-am2022-covid/">available online</a></div>
+<div class="my-footer-left">Slides <a href="kartrix-doujutsu.netlify.app/ncf-am2022-covid/">available online</a></div>
 
 .right[
 <div class="my-footer-right" style="font-size:0.7em; bottom:0px;"><i>Photo: Subhadra Devi</i></div>
