@@ -11,3 +11,8 @@ NCF-AM2022-covid/index_cache/
 NCF_AM2023/00_data/
 NCF_AM2023/02_pics/
 NCF_AM2023/*.pptx
+.positai
+
+
+# SoIB Saumitra's illustrations
+2026_AOS_SoIB/pics/*_saumitra.png
