@@ -58,32 +58,11 @@ source(here("2026_AOS_SoIB/helpers.R"))
 Source: BirdLife International and Dogeatcog
 :::
 
-## {.center auto-animate=true}
-
-::::: {.columns}
-
-:::: {.column width="50%"}
-
-Knowledge-action gap
-
-::: {.fragment}
-Wallacean & Prestonian knowledge shortfalls
+:::{.notes}
+- Knowledge-action gap
+- Wallacean & Prestonian knowledge shortfalls
 :::
 
-::::
-
-:::: {.column width="50%"}
-
-![](pics/global_bird_decline.webp){fig-align="left" height=600}
-
-::::
-
-:::::
-	
-::: footer
-Hortal et al. 2015
-:::
-	
 ## State of Birds
 
 ::: {.fragment}
@@ -110,7 +89,7 @@ Hortal et al. 2015
 
 - Regular status assessments of a region's birds
 - Limited to few parts of the world (**Global North**)
-- Large-scale systematic monitoring programmes (**structured data**)
+- Large-scale & long-term systematic monitoring programmes (**structured data**)
 
 ::: {layout="[1, 1, 1, 1]"}
 
@@ -150,6 +129,12 @@ Hortal et al. 2015
 Robinson et al. 2025, Ongole et al. 2026 *preprint*
 :::
 
+## {background-color="black" background-image="pics/ebird_global.png" background-size="contain"}
+
+::: footer
+Source: [eBird/Cornell Lab of Ornithology](https://ebird.org/news/ebird-passes-2-billion-bird-observations)
+:::
+
 ## {background-image="pics/soib_partners.png" background-size="contain" background-color="white"}
 
 <!-- 14 orgs came together for common goal of bird conservation -->
@@ -179,23 +164,26 @@ Robinson et al. 2025, Ongole et al. 2026 *preprint*
 
 <!-- but where do we start? -->
 
-## {background-color="black" background-image="pics/ebird_global.png" background-size="contain"}
-
-::: footer
-Source: [eBird/Cornell Lab of Ornithology](https://ebird.org/news/ebird-passes-2-billion-bird-observations)
-:::
-
 ## {background-color="black" background-image="pics/ebird_in_coverage.png" background-size="contain"}
 
 ::: footer
 Source: [Bird Count India](https://birdcount.in/ebirding-india/)
 :::
 
-## {.center auto-animate=true}
+## {}
 
 - Status & trends from eBird: not easy!
 - Careful data curation, robust statistics
-- Developed methodological framework
+
+![](pics/ebird_status_trends.png){fig-align="center" height=400}
+
+:::{.notes}
+Great knowledge product at high resolution. But very fine-scale spatially explicit results, whereas we wanted regional-level assessments, where national and state-level policy is managed. It also involves some degree of extrapolation which we wanted to avoid (involves relationships with habitat and other variables, which are used to predict/extrapolate for cells without data)
+:::
+
+## {}
+
+Developed methodological framework
 
 :::: {.r-stack}
 
@@ -213,28 +201,20 @@ Source: [Bird Count India](https://birdcount.in/ebirding-india/)
 
 <!-- the main eBird analytical framework that produced status & trends assessments was published in detail with the hope that it serves as a blueprint for other regions looking to produce SoB -->
 
-## {background-image="pics/soib_pipeline.jpg" background-position="center" background-color="white" background-size="contain"}
+## {background-image="pics/soib_pipeline.jpg" background-position="right" background-color="white" background-size="contain"}
 
-##
-
-:::: {.columns}
-
-::: {.column width="50%" .fragment}
-
-- Approach different from eBird Status & Trends
-- Data *curation before modelling*
-- Spatial random effects in GLMMs
+::: {.fragment}
+- Data curation before modelling
+- Ability to utilise historical data (list length covariate)
+- Spatial subsampling + random effects in GLMMs
 - Strict sensitivity checks
 - Three-way priority classification
 - Replicable blueprint!
-
 :::
 
-::: {.column width="50%"}
-![](pics/soib_pipeline.jpg){fig-align="right" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px;" height=800}
+:::{.notes}
+Reshaping (effort, spatial-temporal units, vagrant records) & curation (reviewing checklist completeness)---we found to have big impact on results
 :::
-
-::::
 
 # Results {.section-slide background-image="pics/aspr_saumitra.png" background-position="right" background-size="60%"}
 
@@ -244,23 +224,27 @@ Source: [Bird Count India](https://birdcount.in/ebirding-india/)
 Illustration: Saumitra Deshmukh
 :::
 
-## {background-image="pics/soib_highlights.png" background-position="center" background-size="contain"}
+## {background-image="pics/01_Diet-Guilds_LTT.png" background-size="contain"}
 
-::: footer
-Illustration: Saumitra Deshmukh
+![](pics/fruit_saumitra.png){fig-align="right" height=300 .fragment}
+
+:::{.notes}
+First explain how to interpret graph
+
+Attention frugivores vs invertivores & carrion-feeders
 :::
 
-## {background-image="pics/soib_conserv_prior.png" background-position="left" background-size="contain"}
+## {background-image="pics/04_Raptors_LTT.png" background-size="contain"}
 
-![](pics/soib_iucn_crosstab.png){.fragment .absolute bottom=100 right=0 width="50%" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px;"}
+![](pics/eagle_saumitra.png){fig-align="right" height=300}
 
-::: footer
-Illustrations: Saumitra Deshmukh
+:::{.notes}
+Difference not really migration, but probably habitat and dietary specialisation
 :::
 
-## Interpreting long-term change {background-image="pics/Black-Drongo_in_LTT_trend.png" background-size="contain"}
+## {background-image="pics/02_Habitat-Specialisations_LTT.png" background-size="contain"}
 
-# The Good {.section-slide background-image="pics/section_the_good.png" background-size="contain" background-opacity="90%"}
+![](pics/one_spec_saumitra.png){fig-align="center" height=500 .fragment}
 
 ## {background-image="pics/12_Thriving-Birds_LTT.png" background-size="contain"}
 
@@ -268,23 +252,9 @@ Illustrations: Saumitra Deshmukh
 
 ![](pics/cali_peacock_problem.png){fig-align="center" height=300 .fragment}
 
-## {background-image="pics/01_Diet-Guilds_LTT.png" background-size="contain"}
-
-![](pics/fruit_saumitra.png){fig-align="right" height=300 .fragment}
-
-# The Bad {.section-slide background-image="pics/section_the_bad.png" background-size="contain" background-opacity="90%"}
-
-## {background-image="pics/04_Shorebird-Migratory-Behaviours_LTT.png" background-size="contain"}
-
-![](pics/godwit_saumitra.png){fig-align="center" height=300}
-
-## {background-image="pics/04_Raptors_LTT.png" background-size="contain"}
-
-![](pics/eagle_saumitra.png){fig-align="right" height=300}
-
-## {background-image="pics/01_Open-Ecosystems_LTT.png" background-size="contain"}
-
-![](pics/one_spec_saumitra.png){fig-align="center" height=300}
+:::{.notes}
+Everything is not doom and gloom, there are species doing well. Whether this is good or bad is a different matter for us to decide.
+:::
 
 # Open habitat birds, invertivores & raptors in global peril {.section-slide}
 
@@ -337,23 +307,15 @@ Srinivasan et al. 2025, Datta et al. 2026 *preprint*, Bharadwaj et al. 2025
 
 ::::
 
-## 
-
-{{< video https://youtu.be/bqPDnbQ9v8Y?si=Ds2u3SF42VKmE1hP width="100%" height="100%" >}}
-
 ## {background-image="pics/myna_web.png" background-position="center" background-size="contain"}
 
-::: {.r-stack}
+![](pics/myna_qr.png){.absolute bottom=100 right=0 height="100"}
+
 ![](pics/myna_report1.png){.fragment fig-align="center" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px; height: 700px;"}
 
-![](pics/myna_report2.png){.fragment fig-align="center" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px; height: 700px;"}
-:::
-
-## 
-
-![](pics/myna_stakeholders.png){fig-align="center" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px;"}
-
 ## The knowledge gap {background-image="pics/gswo_saumitra.png" background-position="top right" background-size="20%"}
+
+<!-- drop if no time -->
 
 ::: {.incremental}
 - National + state-wise  products & launches
@@ -373,14 +335,17 @@ Illustration: Saumitra Deshmukh
 
 ## Looking ahead {background-image="pics/soib_logo.png" background-size="10%" background-position="top right"}
 
-- Near-live MYNA updates (3-month lag)
-- Annual data+assessment updates
-- Milestone SoIB reports every 3-4 years
 
 ::: {.r-fit-text .fragment}
 **SoIB 2027**
 
 <br>
+:::
+
+::: {.notes}
+Excited about the next big report due next year! Stay tuned
+
+Plan to bring out milestone SoIB reports every 3-4 years, but new results every year
 :::
 
 # Thank you! {.section-slide background-image="pics/kite_eagle_flipped_saumitra.png" background-size="70%" background-position="100% 80%"}
@@ -437,9 +402,17 @@ Source: Aasheesh Pittie (L), P Jeganathan (R)
 
 <!-- inc. spatial subsampling to reduce pseudoreplication -->
 
-## SoIB 2023 summary {visibility="uncounted"}
+## Migratory shorebirds {background-image="pics/04_Shorebird-Migratory-Behaviours_LTT.png" background-size="contain" visibility="uncounted"}
 
-![](pics/soib_summary.png){fig-align="center" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px;"}
+![](pics/godwit_saumitra.png){fig-align="center" height=300}
+
+## SoIB 2023 summary {background-image="pics/soib_conserv_prior.png" background-position="left" background-size="contain" visibility="uncounted"}
+
+![](pics/soib_iucn_crosstab.png){.fragment .absolute bottom=100 right=0 width="50%" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px;"}
+
+::: footer
+Illustrations: Saumitra Deshmukh
+:::
 
 ## SoIB 2027 sneak peek!
 
@@ -467,6 +440,3 @@ Software Consultant
 ::: footer
 Source: Shree Kumar
 :::
-
-## Classification thresholds {visibility="uncounted"}
-
