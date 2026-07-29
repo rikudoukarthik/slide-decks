@@ -168,7 +168,7 @@ $selection-bg: #716252 !default;
 
 // section header slides
 
-// target the slide content specifically
+// target the slide content specifically (screen & print)
 .reveal .slides section.section-slide {
     background-color: transparent !important; /* Make the content layer clear */
     
@@ -181,8 +181,7 @@ $selection-bg: #716252 !default;
 
 }
 
-
-// target the actual background layer that Reveal.js creates
+// target the actual background layer that Reveal.js creates (normal screen view)
 // this puts $alt-section color on the "true" background layer
 .reveal .backgrounds .slide-background.section-slide {
     background-color: $alt-section !important;
@@ -192,6 +191,15 @@ $selection-bg: #716252 !default;
 
     a {
       color: $link-color;
+    }
+}
+
+// target the background layer (print/PDF view)
+// Reveal.js removes `.backgrounds` when printing, so we target the direct stack
+@media print {
+    .reveal .slide-background.section-slide,
+    .reveal .slide-background.section-slide .slide-background-content {
+        background-color: $alt-section !important;
     }
 }
 
