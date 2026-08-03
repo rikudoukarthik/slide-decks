@@ -335,6 +335,13 @@ Excited about the next big report due next year! Stay tuned
 Plan to bring out milestone SoIB reports every 3-4 years, but new results every year
 :::
 
+## Acknowledgements
+
+- Duleep Matthai Nature Conservation Trust
+- Rohini Nilekani Philanthropies
+- All partner organizations
+- eBirders!
+
 # Thank you! {.section-slide background-color="#d9d2b8" background-image="pics/kite_eagle_flipped_saumitra.png" background-size="70%" background-position="100% 80%"}
 
 ```{r}
@@ -395,23 +402,21 @@ Source: Aasheesh Pittie (L), P Jeganathan (R)
 
 ## SoIB 2023 summary {background-image="pics/soib_conserv_prior.png" background-position="left" background-size="30%" visibility="uncounted"}
 
-![](pics/soib_iucn_crosstab.png){.fragment .absolute bottom=100 right=0 width="50%" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px;"}
+![](pics/soib_iucn_crosstab.png){.absolute bottom=100 right=0 width="50%" style="box-shadow: 0 4px 10px rgba(0,0,0,0.3); padding: 0px; border: 1px solid #ddd; border-radius: 10px;"}
 
 ::: footer
 Illustrations: Saumitra Deshmukh
 :::
 
-## The knowledge gap
+## The knowledge gap {visibility="uncounted"}
 
 <!-- drop if no time -->
 
-::: {.incremental}
 - National + state-wise  products & launches
 - Engagement with state- and local-level stakeholders (FD training)
 - IUCN Red List reassessment of 9 species
 - National Red List
 - Proactive partnership of organisations
-:::
 
 ## SoIB 2027 sneak peek! {visibility="uncounted"}
 
